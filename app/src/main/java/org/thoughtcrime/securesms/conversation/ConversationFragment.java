@@ -160,6 +160,8 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
+import static org.webrtc.ContextUtils.getApplicationContext;
+
 @SuppressLint("StaticFieldLeak")
 public class ConversationFragment extends LoggingFragment {
   private static final String TAG = Log.tag(ConversationFragment.class);
@@ -764,15 +766,23 @@ public class ConversationFragment extends LoggingFragment {
   }
 
   // Handle Pin Alert Dialog - Bima Putra S
-  private AlertDialog.Builder buildRemotePinConfirmationDialog(Set<MessageRecord> messageRecordsPin) {
+  private AlertDialog.Builder buildRemotePinConfirmationDialog(Set<MessageRecord> messageRecords) {
     Context             context       = requireActivity();
-    int                 messagesCount = messageRecordsPin.size();
+    int                 messagesCount = messageRecords.size();
     AlertDialog.Builder builder       = new AlertDialog.Builder(getActivity());
 
     builder.setTitle(getActivity().getResources().getQuantityString(R.plurals.ConversationFragment_pin_selected_messages, messagesCount, messagesCount));
     builder.setCancelable(true);
 
     builder.setPositiveButton(R.string.ConversationFragment_pin_for_me, (dialog, which) -> {
+      // Show ID Message for Data.
+      for (MessageRecord messageRecord : messageRecords) {
+        Context con = getApplicationContext();
+        int duration = 1000;
+
+        Toast toast = Toast.makeText(con, String.valueOf(messageRecord.getId()), duration);
+        toast.show();
+      }
       //nothing
     });
 

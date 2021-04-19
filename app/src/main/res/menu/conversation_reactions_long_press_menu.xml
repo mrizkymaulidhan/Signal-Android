@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_pin_msg"
-        android:icon="@drawable/ic_pin_24"
-        android:title="@string/pin_message"
+        android:id="@+id/action_star_msg"
+        android:icon="@android:drawable/btn_star"
+        android:title="@string/star_message"
         app:iconTint="@color/signal_icon_tint_primary"
         app:showAsAction="always" />
     <item
@@ -46,6 +46,8 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/action_forward"
+        android:icon="@drawable/ic_forward_24"
         android:title="@string/conversation_context__menu_forward_message"
-        app:showAsAction="ifRoom" />
+        app:iconTint="@color/signal_icon_tint_primary"
+        app:showAsAction="always" />
 </menu>

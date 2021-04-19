@@ -759,22 +759,24 @@ public class ConversationFragment extends LoggingFragment {
     }
   }
 
-  // Handle Pin Messages - Bima Putra S
-  private void handlePinMessages(final Set<ConversationMessage> conversationMessages) {
-    Set<MessageRecord> messageRecordsPin = Stream.of(conversationMessages).map(ConversationMessage::getMessageRecord).collect(Collectors.toSet());
-    buildRemotePinConfirmationDialog(messageRecordsPin).show();
+  // Mohammad Rizky Maulidhan //
+  // Handle Pin Messages //
+  private void handleStarredMessages(final Set<ConversationMessage> conversationMessages) {
+    Set<MessageRecord> messageRecordsStarred = Stream.of(conversationMessages).map(ConversationMessage::getMessageRecord).collect(Collectors.toSet());
+    buildRemotePinConfirmationDialog(messageRecordsStarred).show();
   }
 
-  // Handle Pin Alert Dialog - Bima Putra S
+  // Mohammad Rizky Maulidhan //
+  // Handle Pin Messages Alert Dialog //
   private AlertDialog.Builder buildRemotePinConfirmationDialog(Set<MessageRecord> messageRecords) {
     Context             context       = requireActivity();
     int                 messagesCount = messageRecords.size();
     AlertDialog.Builder builder       = new AlertDialog.Builder(getActivity());
 
-    builder.setTitle(getActivity().getResources().getQuantityString(R.plurals.ConversationFragment_pin_selected_messages, messagesCount, messagesCount));
+    builder.setTitle(getActivity().getResources().getQuantityString(R.plurals.ConversationFragment_star_selected_messages, messagesCount, messagesCount));
     builder.setCancelable(true);
 
-    builder.setPositiveButton(R.string.ConversationFragment_pin_for_me, (dialog, which) -> {
+    builder.setPositiveButton(R.string.ConversationFragment_star_for_me, (dialog, which) -> {
       // Show ID Message for Data.
       for (MessageRecord messageRecord : messageRecords) {
         Context con = getApplicationContext();
@@ -1694,8 +1696,9 @@ public class ConversationFragment extends LoggingFragment {
         case R.id.action_multiselect: handleEnterMultiSelect(conversationMessage);                                          return true;
         case R.id.action_forward:     handleForwardMessage(conversationMessage);                                            return true;
         case R.id.action_download:    handleSaveAttachment((MediaMmsMessageRecord) conversationMessage.getMessageRecord()); return true;
-        // Tambahan Confirm Buat PIN - Bima
-        case R.id.action_pin_msg:     handlePinMessages(SetUtil.newHashSet(conversationMessage));
+        // Mohammad Rizky Maulidhan //
+        // Confrim to star message //
+        case R.id.action_star_msg:     handleStarredMessages(SetUtil.newHashSet(conversationMessage));
         default:                                                                                                            return false;
       }
     }

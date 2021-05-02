@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_star_msg"
-        android:icon="@android:drawable/btn_star"
+        android:icon="@android:drawable/btn_star_off"
         android:title="@string/star_message"
         app:iconTint="@color/signal_icon_tint_primary"
         app:showAsAction="always" />

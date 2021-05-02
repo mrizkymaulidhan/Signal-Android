@@ -291,8 +291,8 @@
     </plurals>
     <!-- String star selected component -->
     <plurals name="ConversationFragment_star_selected_messages">
-        <item quantity="one">Star this message?</item>
-        <item quantity="other">Star this message?</item>
+        <item quantity="one">Do you want to star this message?</item>
+        <item quantity="other">Do you want to star this message?</item>
     </plurals>
     <string name="ConversationFragment_save_to_sd_card">Save to storage?</string>
     <plurals name="ConversationFragment_saving_n_media_to_storage_warning">

@@ -760,14 +760,14 @@ public class ConversationFragment extends LoggingFragment {
   }
 
   // Mohammad Rizky Maulidhan //
-  // Handle Pin Messages //
+  // Handle Star Messages //
   private void handleStarredMessages(final Set<ConversationMessage> conversationMessages) {
     Set<MessageRecord> messageRecordsStarred = Stream.of(conversationMessages).map(ConversationMessage::getMessageRecord).collect(Collectors.toSet());
     buildRemotePinConfirmationDialog(messageRecordsStarred).show();
   }
 
   // Mohammad Rizky Maulidhan //
-  // Handle Pin Messages Alert Dialog //
+  // Handle Star Messages Alert Dialog //
   private AlertDialog.Builder buildRemotePinConfirmationDialog(Set<MessageRecord> messageRecords) {
     Context             context       = requireActivity();
     int                 messagesCount = messageRecords.size();
@@ -777,7 +777,7 @@ public class ConversationFragment extends LoggingFragment {
     builder.setCancelable(true);
 
     builder.setPositiveButton(R.string.ConversationFragment_star_for_me, (dialog, which) -> {
-      // Show ID Message for Data.
+      // Show ID Message //
       for (MessageRecord messageRecord : messageRecords) {
         Context con = getApplicationContext();
         int duration = 1000;
